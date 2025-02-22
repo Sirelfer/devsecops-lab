@@ -29,10 +29,10 @@ jobs:
       - name: Build Docker image
         run: docker build -t devsecops-lab .
 
-      - name: Run SonarCloud Analysis
+      - name: Run SonarQube Analysis
         run: |
           docker run --rm \
-          -e SONAR_HOST_URL="https://sonarcloud.io" \
+          -e SONAR_HOST_URL="http://localhost:9000" \
           -e SONAR_LOGIN=${{ secrets.SONAR_TOKEN }} \
           -v "$(pwd):/usr/src" \
           sonarsource/sonar-scanner-cli
