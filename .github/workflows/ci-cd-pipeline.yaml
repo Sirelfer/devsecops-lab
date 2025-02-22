@@ -44,9 +44,9 @@ jobs:
           SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         run: |
           docker run --rm \
-          -e SONAR_HOST_URL="https://sonarcloud.io" \
-          -e SONAR_TOKEN=$SONARCLOUD_TOKEN \
-          -e SONAR_PROJECT_KEY=Sirelfer_devsecops-lab \  # Usa tu Project Key
-          -e SONAR_ORGANIZATION=sirelfer \  # Usa tu Organization Key
-          -v "$(pwd):/usr/src" \
-          sonarsource/sonar-scanner-cli
+            -e SONAR_HOST_URL="https://sonarcloud.io" \
+            -e SONAR_TOKEN=$SONARCLOUD_TOKEN \
+            -e SONAR_PROJECT_KEY=Sirelfer_devsecops-lab \
+            -e SONAR_ORGANIZATION=sirelfer \
+            -v "$(pwd):/usr/src" \
+            sonarsource/sonar-scanner-cli
