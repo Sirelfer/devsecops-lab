@@ -12,26 +12,33 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Paso 1: Clonar el repositorio
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Paso 2: Listar archivos en el directorio de trabajo (para depuración)
       - name: List files in working directory
         run: ls -la
 
+      # Paso 3: Configurar Python
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
 
+      # Paso 4: Instalar dependencias
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # Paso 5: Ejecutar pruebas
       - name: Run tests
         run: python -m unittest discover
 
+      # Paso 6: Construir la imagen de Docker
       - name: Build Docker image
         run: docker build -t devsecops-lab .
 
+      # Paso 7: Ejecutar análisis de código con SonarCloud
       - name: Run SonarCloud Analysis
         run: |
           docker run --rm \
