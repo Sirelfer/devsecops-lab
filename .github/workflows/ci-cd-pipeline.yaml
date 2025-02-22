@@ -27,7 +27,7 @@ jobs:
         run: python -m unittest discover
 
       - name: Build Docker image
-        run: docker build -t devsecops-lab .
+        run: docker build -t devsecops-lab ../..
 
       - name: Run SonarQube Analysis
         run: |
