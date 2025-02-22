@@ -25,7 +25,8 @@ jobs:
 
       - name: Run tests
         run: python -m unittest discover
-
+      - name: Print working directory
+        run: pwd
       - name: Build Docker image
         run: docker build -t devsecops-lab .
 
